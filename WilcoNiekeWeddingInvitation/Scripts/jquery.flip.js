@@ -120,7 +120,7 @@
         });
     };
 
-    $.fn.flip = function (settings) {
+    $.fn.flip = function (settings, callback) {
         return this.each(function () {
             var $this = $(this), flipObj, $clone, dirOption, dirOptions, newContent, ie6 = isIE6orOlder();
 
@@ -149,14 +149,14 @@
                         handleDirection(settings.direction);
                 })(),
                 bgColor: (function () {
-                    var color = $this.css("color"); // TODO: overwrite color
+                    var color = $("#pageCover").css("background-color"); // TODO: overwrite color
 
                     if (typeof settings != 'undefined')
                         color = acceptHexColor(settings.color)
                     return color;
                 })(),
                 color: (function () {
-                    var color = $this.css("background-color"); // TODO: overwrite color
+                    var color = $("#pageCover").css("background-color"); // TODO: overwrite color
 
                     if (typeof settings != 'undefined')
                         color = acceptHexColor(settings.bgColor);
@@ -212,7 +212,7 @@
                 bgColor: acceptHexColor(settings.bgColor) || $this.css("background-color"),
                 fontSize: $this.css("font-size") || "12px",
                 direction: settings.direction || "tb",
-                toColor: acceptHexColor(settings.color) || "#999",
+                toColor: acceptHexColor(settings.color) || "#bfab72",
                 speed: settings.speed || 500,
                 top: $this.offset().top,
                 left: $this.offset().left,
@@ -227,7 +227,7 @@
             // This is the first part of a trick to support
             // transparent borders using chroma filter for IE6
             // The color below is arbitrary, lets just hope it is not used in the animation
-            ie6 && (flipObj.transparent = "#123456");
+            ie6 && (flipObj.transparent = "#bfab72");
 
             $clone = $this.css("visibility", "hidden")
                 .clone(true)
@@ -249,7 +249,7 @@
                     borderBottomColor: flipObj.transparent,
                     borderLeftColor: flipObj.transparent,
                     borderRightColor: flipObj.transparent,
-                    background: "none",
+                    //background: "none",
                     borderStyle: 'solid',
                     height: 0,
                     width: 0
@@ -266,8 +266,8 @@
                         borderLeftWidth: waist,
                         borderRightWidth: waist,
                         borderBottomWidth: 0,
-                        borderTopColor: '#999',
-                        borderBottomColor: '#999',
+                        borderTopColor: '#bfab72',
+                        borderBottomColor: '#bfab72',
                         top: (flipObj.top + (flipObj.height / 2)),
                         left: (flipObj.left - waist)
                     },
@@ -294,8 +294,8 @@
                         borderLeftWidth: 0,
                         borderRightWidth: 0,
                         borderBottomWidth: waist,
-                        borderLeftColor: '#999',
-                        borderRightColor: '#999',
+                        borderLeftColor: '#bfab72',
+                        borderRightColor: '#bfab72',
                         top: flipObj.top - waist,
                         left: flipObj.left + (flipObj.width / 2)
                     },
@@ -384,6 +384,9 @@
                 $this.removeData('flipLock');
                 $clone.dequeue();
             });
+
+            if (typeof callback === 'function')
+                callback($this);
         });
     };
 })(jQuery);

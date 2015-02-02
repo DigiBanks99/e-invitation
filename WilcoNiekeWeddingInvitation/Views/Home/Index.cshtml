@@ -1,5 +1,23 @@
-﻿<div id="body">
-  <div id="cover"></div>
-    <button id="toInnerCover" type="button" class="pageover" data-content='{"picture":"/Images/Cover.png"}'>&gt</button>
-    <button id="toCover" type="button" class="pageover" data-content='{"picture":"/Images/InsideCover.png"}'>&lt</button>
+﻿<div class="workspace">
+    <div class="invitation">
+        <div id="space" class="col-md-6 space"></div>
+        <div id="pageCover" class="col-md-6 card">
+            <div id="coverCard"></div>
+            <div class="btn-wrapper-right">
+                <button id="toInnerCover" type="button" class="btn pageover pageover-right" data-content='{"picture":"/Images/InsideCover2.png"}'>&gt</button>
+            </div>
+            <button id="toCover" type="button" class="btn pageover pageover-left" data-content='{"picture":"/Images/Cover.png"}'>&lt</button>
+        </div>
+        <div id="pageMessage" class="col-md-6 card">
+            <div id="messageCard"></div>
+            <div class="btn-wrapper-right">
+                <button id="toMap" type="button" class="btn pageover pageover-right" data-content='{"map":"padkaart"}'>&gt</button>
+            </div>
+            <div id="map" class="map"></div>
+            <button id="toMessage" type="button" class="btn pageover pageover-left" data-content='{"message":"welcomeMessage"}'>&lt</button>
+        </div>
+        <div id="pageGuestHouses" class="col-md-6 card">
+            <div id="guestHousesCard"></div>
+        </div>
+    </div>
 </div>
