@@ -25,32 +25,55 @@ function PageInfo(element, success) {
 };
 
 function initCover() {
-    var $this = $("#toCover");
-    var pageInfo = new PageInfo($this);
+    //var $this = $("#toCover");
+    //if (typeof $this != 'undefined') {
+    //    var pageInfo = new PageInfo($this);
 
-    $("#space").removeClass('hide');
+    //    $("#space").removeClass('hide');
 
-    $("#coverCard").flip({
-        direction: "bt",
-        content: pageInfo.content,
-        onBefore: function () {
-            $(".revert").show();
-        }
-    });
+    //    $("#coverCard").flip({
+    //        direction: "bt",
+    //        content: pageInfo.content,
+    //        onBefore: function () {
+    //            $(".revert").show();
+    //        }
+    //    });
 
-    getGuestHouses();
+    //    getGuestHouses();
 
-    $("#toMap").hide();
-    $("#toMessage").hide();
-    $("#map").addClass('hide');
-    $("#toCover").hide();
-    $("#toInnerCover").show();
-    $("#pageCover").removeClass('hide');
-    $("#pageMessage").addClass('hide');
-    $("#pageGuestHouses").addClass('hide');
+    //    $("#toMap").hide();
+    //    $("#toMessage").hide();
+    //    $("#map").addClass('hide');
+    //    $("#toCover").hide();
+    //    $("#toInnerCover").show();
+    //    $("#pageCover").removeClass('hide');
+    //    $("#pageMessage").addClass('hide');
+    //    $("#pageGuestHouses").addClass('hide');
+    //}
 };
 
 function excuteJQuery() {
+    $("#coverPage").bind('click', function () {
+        var $this = $(this);
+
+        var hasFlip = false;
+        for (var i = 0; i < $this.context.classList.length; i++) {
+            if ($this.context.classList[i] == 'flip') {
+                hasFlip = true;
+                break;
+            }
+        }
+
+        if (hasFlip) {
+            $this.removeClass('flip');
+        } else {
+            $this.addClass('flip');
+        }
+    });
+
+    return;
+
+    ///////////////////////////////////////////
     $("#toInnerCover").bind("click", function () {
         var $this = $(this);
         var pageInfo = new PageInfo($this);
@@ -71,7 +94,7 @@ function excuteJQuery() {
             onBefore: function () {
                 $(".revert").show();
             }
-        })
+        });
 
         var pageInfoContent = 'Not set';
         var messagePageInfo = new PageInfo($("#toMessage"), function (response) {
@@ -180,20 +203,21 @@ function getMessage(key, callBack, callBackObj) {
         case "welcomeMessage":
             $.getJSON("http://localhost:1468/Content/json/message.json", function (data) {
                 var boodskap = data.message;
-                message = '<div class="welcome-message">' +
-                                 '<p><span>' + boodskap.title + '</span></p>' +
-                                 '<p><span>' + boodskap.main + '</span></p>' +
-                                 '<p><span>' + boodskap.sub + '</span></p>' +
-                                 '<p><span>' + boodskap.postsub + '</span></p>' +
-                                 '<p><span>' + boodskap.rsvp + '</span><br />';
+                message = '<div class="container-message">' +
+                            '<div class="welcome-message">' +
+                                 '<p class="small"><span class="message-title">' + boodskap.title + '</span></p>' +
+                                 '<p class="small"><span>' + boodskap.main + '</span></p>' +
+                                 '<p class="small"><span>' + boodskap.sub + '</span></p>' +
+                                 '<p class="small"><span>' + boodskap.postsub + '</span></p>' +
+                                 '<p class="small"><span>' + boodskap.rsvp + '</span><br />';
                 for (var i = 0; i < boodskap.contacts.length; i++) {
                     message += '<span>' + boodskap.contacts[i].person + '</span><br />';
                 }
                 message +=       '</p>' +
-                                 '<p><span>' + boodskap.gift + '</span>' +
+                                 '<p class="small"><span>' + boodskap.gift + '</span>' +
                                  '<i class="fa fa-envelope-o" aria-hidden="true"></i></p>' + // TODO: add envelop
-                                 '<p><span>' + boodskap.footnote + '</span></p>' +
-                             '</div>';
+                                 '<p class="small"><span>' + boodskap.footnote + '</span></p>' +
+                             '</div></div>';
 
                 callBack(message);
                 return message;
@@ -212,21 +236,23 @@ function getGuestHouses() {
         if (isNullOrEmpty(data))
             return;
 
-        var content = '<ul class="list-group">';
+        var content = '<div class="brown-shadow">' +
+            '<ul class="list-group">' +
+            '<li class="list-group-item guesthouse guesthouse-description">Verblyf/Akkomodasie:<br />------------------------------</li>';
         for (var i = 0; i < data.length; i++) {
             var guesthouse = data[i];
             content += '<li class="list-group-item guesthouse">';
-            content += '<p>';
+            content += '<p class="small">';
             content += '<span>' + guesthouse.name + '</span><br />';
             content += '<span>' + guesthouse.address + '</span><br />';
-            content += '<span>' + guesthouse.tel + '</span><br />';
+            content += '<span class="guesthouse-tel">' + guesthouse.tel + '</span><br />';
             if (guesthouse.coordinates != null) {
-                content += '<span>' + guesthouse.coordinates + '</span><br />';
+                content += '<span class="guesthouse-coordinates">' + guesthouse.coordinates + '</span><br />';
             }
             content += '</p>';
             content += '</li>';
         }
-        content += '</ul>';
+        content += '</ul></div>';
         $this.append(content);
         $this.html()
     })

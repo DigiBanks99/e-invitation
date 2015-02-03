@@ -212,7 +212,7 @@
                 bgColor: acceptHexColor(settings.bgColor) || $this.css("background-color"),
                 fontSize: $this.css("font-size") || "12px",
                 direction: settings.direction || "tb",
-                toColor: acceptHexColor(settings.color) || "#bfab72",
+                toColor: acceptHexColor(settings.color) || "#cfc4a4",
                 speed: settings.speed || 500,
                 top: $this.offset().top,
                 left: $this.offset().left,
@@ -227,7 +227,7 @@
             // This is the first part of a trick to support
             // transparent borders using chroma filter for IE6
             // The color below is arbitrary, lets just hope it is not used in the animation
-            ie6 && (flipObj.transparent = "#bfab72");
+            ie6 && (flipObj.transparent = "#cfc4a4");
 
             $clone = $this.css("visibility", "hidden")
                 .clone(true)
@@ -266,8 +266,8 @@
                         borderLeftWidth: waist,
                         borderRightWidth: waist,
                         borderBottomWidth: 0,
-                        borderTopColor: '#bfab72',
-                        borderBottomColor: '#bfab72',
+                        borderTopColor: '#cfc4a4',
+                        borderBottomColor: '#cfc4a4',
                         top: (flipObj.top + (flipObj.height / 2)),
                         left: (flipObj.left - waist)
                     },
@@ -294,8 +294,8 @@
                         borderLeftWidth: 0,
                         borderRightWidth: 0,
                         borderBottomWidth: waist,
-                        borderLeftColor: '#bfab72',
-                        borderRightColor: '#bfab72',
+                        borderLeftColor: '#cfc4a4',
+                        borderRightColor: '#cfc4a4',
                         top: flipObj.top - waist,
                         left: flipObj.left + (flipObj.width / 2)
                     },

@@ -11,7 +11,7 @@ namespace WilcoNiekeWeddingInvitation
       bundles.Add(new ScriptBundle("~/bundles/app").Include("~/Scripts/app/app.js"));
 
       bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                  "~/Scripts/jquery-{version}.js"));
+                  "~/Scripts/jquery-1.11.2.js"));
 
       bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                   "~/Scripts/jquery-ui-{version}.js"));
