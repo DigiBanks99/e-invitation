@@ -12,26 +12,25 @@
 
 body
 {
-  cursor: pointer;
   width: 100%;
   height: 100%;
   background: lightgray; /* Old browsers */
-  background: -moz-radial-gradient(center, ellipse cover, purple 0%, lightgray 100%); /* FF3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,purple), color-stop(100%,lightgray)); /* Chrome,Safari4+ */
-  background: -webkit-radial-gradient(center, ellipse cover, purple 0%,lightgray 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-radial-gradient(center, ellipse cover, purple 0%,lightgray 100%); /* Opera 12+ */
-  background: -ms-radial-gradient(center, ellipse cover, purple 0%,lightgray 100%); /* IE10+ */
-  background: radial-gradient(ellipse at center, purple 0%,lightgray 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='purple', endColorstr='lightgray',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  -webkit-perspective: 1036px;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(90, 60, 96, 0.88) 0%, lightgray 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(90, 60, 96, 0.88)), color-stop(100%,lightgray)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(90, 60, 96, 0.88) 0%,lightgray 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, rgba(90, 60, 96, 0.88) 0%,lightgray 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, rgba(90, 60, 96, 0.88) 0%,lightgray 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center, rgba(90, 60, 96, 0.88) 0%,lightgray 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(90, 60, 96, 0.88)', endColorstr='lightgray',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  /*-webkit-perspective: 1036px;
   -moz-perspective: 1036px;
   -ms-perspective: 1036px;
-  -o-perspective: 1036px;
+  -o-perspective: 1036px;*/
   perspective: 1036px;
-  -webkit-transform-style: preserve-3d;
+  /*-webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;*/
   transform-style: preserve-3d;
 }
 
@@ -52,30 +51,32 @@ body
 
   #myBook .book > div:first-child
   {
-    -webkit-transform: rotateY(-150deg);
+    /*-webkit-transform: rotateY(-150deg);
     -moz-transform: rotateY(-150deg);
     -ms-transform: rotateY(-150deg);
-    -o-transform: rotateY(-150deg);
+    -o-transform: rotateY(-150deg);*/
     transform: rotateY(-150deg);
   }
 
 .book, .book > div
 {
-  -webkit-transform-style: preserve-3d;
+  /*-webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;*/
   transform-style: preserve-3d;
   position: absolute;
 }
 
   .book > div
   {
-    -webkit-transition: 1s ease-in-out;
+    /*-webkit-transition: 1s ease-in-out;
     -moz-transition: 1s ease-in-out;
-    -ms-transition: 1s ease-in-out;
-    -o-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;*/
     transition: 1s ease-in-out;
+    -moz-backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
   }
     /* Front of a page */
     .book > div > div:first-child
@@ -91,11 +92,10 @@ body
       width: 518px;
       height: 778px;
       position: absolute;
-      overflow: hidden;
-      -webkit-transform: translate3d(0px, 0px, 0.02px);
+      /*-webkit-transform: translate3d(0px, 0px, 0.02px);
       -moz-transform: translate3d(0px, 0px, 0.02px);
       -ms-transform: translate3d(0px, 0px, 0.02px);
-      -o-transform: translate3d(0px, 0px, 0.02px);
+      -o-transform: translate3d(0px, 0px, 0.02px);*/
       transform: translate3d(0px, 0px, 0.02px);
       padding: 30px;
       padding-left: 40px;
@@ -116,10 +116,10 @@ body
       width: 518px;
       height: 778px;
       position: absolute;
-      -webkit-transform: rotateY(180deg);
+      /*-webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
       -ms-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);*/
       transform: rotateY(180deg);
       overflow: hidden;
       padding: 30px;
@@ -151,10 +151,10 @@ body
 
 #book-content
 {
-  -webkit-flow-into: book-text-flow;
+  /*-webkit-flow-into: book-text-flow;
   -moz-flow-into: book-text-flow;
   -ms-flow-into: book-text-flow;
-  -o-flow-into: book-text-flow;
+  -o-flow-into: book-text-flow;*/
   flow-into: book-text-flow;
 }
 
@@ -165,10 +165,10 @@ body
 
 .book-pages
 {
-  -webkit-flow-from: book-text-flow;
+  /*-webkit-flow-from: book-text-flow;
   -moz-flow-from: book-text-flow;
   -ms-flow-from: book-text-flow;
-  -o-flow-from: book-text-flow;
+  -o-flow-from: book-text-flow;*/
   flow-from: book-text-flow;
 }
 
@@ -274,30 +274,57 @@ body
   font-size: 16pt;
 }
 
+.btn-navigate{
+  background-color: rgba(90, 60, 96, 0.88);
+  color: lightgray;
+  border: 1px solid rgba(89, 81, 98, 0.98);
+}
+
+.btn-navigate:hover{
+  background-color: rgba(98, 51, 98, 0.98);
+  border: 1px solid  rgba(90, 60, 96, 0.88);
+}
+
+.btn-navigate:active{
+  background-color: rgba(68, 51, 98, 0.98);
+  border: 1px solid  rgba(90, 60, 96, 0.88);
+}
+
+.btn-navigate:focus{
+  background-color: rgba(90, 60, 96, 0.88);
+  border: 1px solid  rgba(90, 60, 96, 0.88);
+  outline: 0;
+}
+
 #btnNext,
 #btnPrevious
 {
   z-index: 99999;
+  font-family: 'Dancing Script', cursive;
+  font-size: 14pt;
+  font-weight: 300;
+  height: 100px;
+  width: 100px;
+  -moz-border-radius: 50px 50px 50px 50px;
+  -webkit-border-radius: 50px 50px 50px 50px;
+  border-radius: 50px 50px 50px 50px;
+  text-wrap: normal;
+  margin-top: 15%;
 }
 
 #btnPrevious
 {
   float: left;
   margin-left: 17%;
-  height: 100px;
-  width: 100px;
-  -moz-border-radius: 50px 50px 50px 50px;
-  -webkit-border-radius: 50px 50px 50px 50px;
-  border-radius: 50px 50px 50px 50px;
 }
 
 #btnNext
 {
   float: right;
   margin-right: 17%;
-  height: 100px;
-  width: 100px;
-  -moz-border-radius: 50px 50px 50px 50px;
-  -webkit-border-radius: 50px 50px 50px 50px;
-  border-radius: 50px 50px 50px 50px;
+}
+
+p > small {
+  display: block;
+  font-size: 15pt;
 }

@@ -242,6 +242,7 @@
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\jquery-1.11.2.js" />
     <None Include="Views\Home\index.cshtml" />
+    <Content Include="Scripts\modernizr.custom.11038.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
