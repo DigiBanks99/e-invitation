@@ -1,32 +1,98 @@
-﻿<div class="col-md-12">
-    <div id="coverPage" class="card click swing">
-        <div class="front cover">
+﻿<div id="myBook">
+    <div class="book">
+
+        <!--Cover and inside cover-->
+        <div>
+            <div id="cover">
+            </div>
+            <div id="inside-cover">
+            </div>
         </div>
-        <div class="back innercover">
-            
+
+        <!--Message and map-->
+        <div>
+            <div class="book-pages">
+                <div class="container-message welcome-message">
+                    <h1>Beste Familie en Vriende</h1>
+                    <p>Ons, Wilco Boshoff en Jannike Beyers, nooi julle hartlik uit om deel te hê aan ons troudag op Saterdag 16 Mei 2015 om 15h30, Anglican Sand Stone Chapel, Cullinan</p>
+                    <p>Onthaal volg te 103 Oak Avenue, Cullinan</p>
+                    <p>Kontantkroeg beskikbaar (slegs kaarte)</p>
+                    <p>
+                        RSVP voor of op 31 Maart 2015 by
+                        <div>Wilco: 0764722551</div>
+                        <div>Jannike: 0724687373</div>
+                        <div>Of op die email</div>
+                    </p>
+                    <p>Geskenkwenk: <i class="fa fa-envelope-o"></i></p>
+                </div>
+            </div>
+            <div class="book-pages">
+                <div class="panel panel-map">
+                    <div id="mapOakHouse" class="map"></div>
+                    <span class="">Kaart na Oak House</span>
+                </div>
+                <div class="panel panel-map">
+                    <div id="mapChapel" class="map"></div>
+                    <span>Kaart na Sand Stone Chapel</span>
+                </div>
+            </div>
+        </div>
+
+        <!--Guest Houses-->
+        <div>
+            <div class="book-pages">
+                <div id="guestHousesCard">
+                    <div class="brown-shadow">
+                        <ul class="list-group">
+                            <li class="list-group-item guesthouse guesthouse-description">
+                                <h1>Verblyf/Akkomodasie:</h1>
+                            </li>
+                            <li class="list-group-item guesthouse">
+                                <p class="small">
+                                    <div>Cullinan Premier Hotel (B&B)</div>
+                                    <div>1 Hotel street, Cullinan</div>
+                                    <div class="guesthouse-tel">0711542401</div>
+                                </p>
+                            </li>
+                            <li class="list-group-item guesthouse">
+                                <p class="small">
+                                    <div>Cullinan Diamond Lodge (B&B)</div>
+                                    <div>2 Hotel street, Cullinan</div>
+                                    <div class="guesthouse-tel">0127342255 of 0788946550</div>
+                                    <div class="guesthouse-coordinates">S 25º40’22.23” E 28º31’08.57”</div>
+                                </p>
+                            </li>
+                            <li class="list-group-item guesthouse">
+                                <p class="small">
+                                    <div>Destiny Lodge</div>
+                                    <div>Plot 24 Lewzene Estate</div>
+                                    <div class="guesthouse-tel">0127369051 of 0833261141</div>
+                                </p>
+                            </li>
+                            <li class="list-group-item guesthouse">
+                                <p class="small">
+                                    <div>Bushveld Rose (3km vanaf Cullinan) (Selfsorgeenhede)</div>
+                                    <div>Sefako Makgatho Road, Elandshoek, Cullinan</div>
+                                    <div class="guesthouse-tel">0610613904 of 0726051361</div>
+                                </p>
+                            </li>
+                            <li class="list-group-item guesthouse">
+                                <p class="small">
+                                    <div>Tranquility Spa en Lodge</div>
+                                    <div>Area 40, Plaas Welgedacht, Dinokeng, Cullinan</div>
+                                    <div class="guesthouse-tel">0127352334</div>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div></div>
         </div>
     </div>
 </div>
-@*<div class="workspace">
-        <div class="invitation">
-            <div id="space" class="col-md-6 space"></div>
-            <div id="pageCover" class="col-md-6 card">
-                <div id="coverCard"></div>
-                <div class="btn-wrapper-right">
-                    <button id="toInnerCover" type="button" class="btn pageover pageover-right" data-content='{"picture":"/Images/InsideCover.png"}'>&gt</button>
-                </div>
-                <button id="toCover" type="button" class="btn pageover pageover-left" data-content='{"picture":"/Images/Cover.png"}'>&lt</button>
-            </div>
-        <div id="pageMessage" class="col-md-6 card">
-            <div id="messageCard"></div>
-            <div class="btn-wrapper-right">
-                <button id="toMap" type="button" class="btn pageover pageover-right" data-content='{"map":"padkaart"}'>&gt</button>
-            </div>
-            <div id="map" class="map"></div>
-            <button id="toMessage" type="button" class="btn pageover pageover-left" data-content='{"message":"welcomeMessage"}'>&lt</button>
-        </div>
-        <div id="pageGuestHouses" class="col-md-6 card">
-            <div id="guestHousesCard"></div>
-        </div>
-    </div>
-</div>*@
+<button class="btn btn-default" id="btnPrevious" onclick="previousPage()">Blaai terug</button>
+<button class="btn btn-default" id="btnNext" onclick="nextPage()">Blaai om</button>
+
+
+<script type="text/javascript" src="~/Scripts/app/app.js"></script>
