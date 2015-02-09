@@ -26,15 +26,9 @@
         else if (ieversion >= 5)
             alert("You're using IE5.x")
     }
-    else {
-        //alert("n/a")
-        return false;
-    }
 
     return false;
 }
-
-var mapLoaded = false;
 
 setTransform = function (e, v) {
     var s = e.style;
@@ -56,6 +50,7 @@ setTransform = function (e, v) {
                     pages[j].style.transformOrigin = '0% 50%';
                     pages[j].style.msTransform = 'perspective(1400px) rotateY(0deg)';
                     pages[j].style.transform = 'perspective(1400px) rotateY(0deg)';
+                    pages[j].style.zIndex = 100 - j;
                 } else {
                     setTransform(pages[j], 'translate3d(0px, 0px, ' + (-j) + 'px)');
                 }
@@ -87,6 +82,8 @@ var previousPage = function () {
             pages[currentPage].style.backfaceVisibility = 'visible';
             pages[currentPage].style.msTransform = 'perspective(1400px) rotateY(0deg)';
             pages[currentPage].style.transform = 'perspective(1400px) rotateY(0deg)';
+            pages[currentPage + 1].style.zIndex -= 10;
+            pages[currentPage].style.zIndex += 10;
         } else {
             setTransform(pages[currentPage], 'translate3d(0px,0px,' + (-currentPage) + 'px) rotateY(0deg)');
         }
@@ -101,6 +98,8 @@ var nextPage = function () {
             pages[currentPage].style.backfaceVisibility = 'visible';
             pages[currentPage].style.msTransform = 'perspective(1400px) rotateY(-180deg)';
             pages[currentPage].style.transform = 'perspective(1400px) rotateY(-180deg)';
+            pages[currentPage + 1].style.zIndex += 10;
+            pages[currentPage].style.zIndex -= 10;
         } else {
             setTransform(pages[currentPage], 'translate3d(0px,0px,' + currentPage + 'px) rotateY(-179deg)');
         }
@@ -141,6 +140,23 @@ function showNextButton() {
     }
 };
 showNextButton();
+
+function transitionEndEventName() {
+    var i,
+        el = document.createElement('div'),
+        transitions = {
+            'transition': 'transitionend',
+            'OTransition': 'otransitionend',  // oTransitionEnd in very old Opera
+            'MozTransition': 'transitionend',
+            'WebkitTransition': 'webkitTransitionEnd'
+        };
+
+    for (i in transitions) {
+        if (transitions.hasOwnProperty(i) && typeof el.style[i] !== 'undefined') {
+            return transitions[i];
+        }
+    }
+}
 
 var oakHouseLatlng = new google.maps.LatLng(-25.671085, 28.517962);
 var oakHouseMapOptions = { zoom: 16, center: oakHouseLatlng, mapTypeId: google.maps.MapTypeId.ROADMAP };
